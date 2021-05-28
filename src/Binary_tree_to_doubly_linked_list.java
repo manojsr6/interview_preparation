@@ -29,20 +29,34 @@ public class Binary_tree_to_doubly_linked_list {
         }
     }
 
+    public Binary_Node insert(Binary_Node root, int key)
+    {
+        if(root == null)
+            return new Binary_Node(key);
+        if(root.data > key)
+            root.left= insert(root.left, key);
+        else
+            root.right= insert(root.right, key);
+        return root;
+    }
+
     public static void main(String args[])
     {
         Binary_tree_to_doubly_linked_list tree= new Binary_tree_to_doubly_linked_list();
-        Binary_Node root= new Binary_Node(1);
-        root.left = new Binary_Node(2);
-        root.right = new Binary_Node(3);
-        root.left.left = new Binary_Node(4);
-        root.left.right = new Binary_Node(5);
-        root.left.right.right = new Binary_Node(15);
-        root.right.left = new Binary_Node(6);
-        root.right.right = new Binary_Node(7);
-        root.right.left.right = new Binary_Node(8);
+        Find_the_triplelet triple= new Find_the_triplelet();
+        Binary_Node root= null;
+        root = tree.insert(root, 6);
+        root = tree.insert(root, -13);
+        root = tree.insert(root, 14);
+        root = tree.insert(root, -8);
+        root = tree.insert(root, 15);
+        root = tree.insert(root, 13);
+        root = tree.insert(root, 7);
 
         tree.convert(root);
+
+        System.out.println("BST converted into Doubly Linked List");
         tree.printDoublyLinkedList(tree.head);
+        triple.triple_fun(tree.head);
     }
 }
