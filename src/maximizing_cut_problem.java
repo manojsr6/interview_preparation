@@ -1,3 +1,5 @@
+
+/// Make a maximum cut on a line segment problem.
 public class maximizing_cut_problem {
 
     public int max(int x, int y, int z)
